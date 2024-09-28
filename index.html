@@ -1,73 +1,82 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Calculadora IMC</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Calculadora IMC</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body class="light-mode">
-    <div class="theme-toggle">
-        <button id="theme-toggle-btn" onclick="toggleTheme()">Modo Oscuro</button>
+  <nav class="menu">
+    <div class="menu-toggle">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="menu-options">
+      <li><a href="index.html">Calculadora IMC</a></li>
+      <li><a href="IMC.html">Información IMC</a></li>
+    </ul>
+  </nav>
+
+  <div class="theme-toggle">
+    <button id="theme-toggle-btn" onclick="toggleTheme()">Modo Oscuro</button>
+  </div>
+
+  <div class="container">
+    <h1>Calculadora IMC</h1>
+    <p>Descubre tu índice de masa corporal y conoce si tienes sobrepeso</p>
+    <div class="input-group">
+      <label for="age">Edad</label>
+      <input type="number" id="age" placeholder="Edad" min="1" required>
     </div>
 
-    <div class="container">
-        <h1>Calculadora de IMC</h1>
-
-        <!-- Input fields -->
-        <div class="input-group">
-            <label for="age">Edad</label>
-            <input type="number" id="age" placeholder="Edad" min="1" required>
-        </div>
-
-        <div class="input-group">
-            <label for="measurement-system">Sistema de Medida</label>
-            <select id="measurement-system" onchange="toggleMeasurementUnits()" required>
-                <option value="metric">Métrico (cm, kg)</option>
-                <option value="imperial">Imperial (pies, lbs)</option>
-            </select>
-        </div>
-
-        <div id="metric-inputs" class="input-group">
-            <label for="height-cm">Altura (cm)</label>
-            <input type="number" id="height-cm" placeholder="Altura (cm)" min="0">
-        </div>
-
-        <div id="imperial-inputs" class="input-group hidden">
-            <label for="height-ft">Altura (pies)</label>
-            <input type="number" id="height-ft" placeholder="Altura (pies)" min="0">
-            <label for="height-in">Pulgadas</label>
-            <input type="number" id="height-in" placeholder="Altura (pulgadas)" min="0">
-        </div>
-
-        <div class="input-group">
-            <label for="weight">Peso</label>
-            <input type="number" id="weight" placeholder="Peso (kg o lbs)" required>
-        </div>
-
-        <div class="input-group">
-            <label for="category">Categoría</label>
-            <select id="category" required>
-                <option value="adult">Adulto</option>
-                <option value="child">Niño</option>
-            </select>
-        </div>
-
-        <button class="calculate-btn" onclick="calculateBMI()">Calcular IMC</button>
-
-        <!-- Result section -->
-        <div id="result" class="result-section hidden">
-            <h2>Resultado</h2>
-            <p id="bmi-result"></p>
-            <p id="bmi-recommendation"></p>
-        </div>
-
-        <!-- Google Form -->
-        <div id="google-form" class="hidden">
-            <iframe src="https://forms.gle/wyF6TZ1iVSC5Fzy49" width="500" height="800" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
-        </div>
+    <div class="input-group">
+      <label for="measurement-system">Sistema de Medida</label>
+      <select id="measurement-system" onchange="toggleMeasurementUnits()" required>
+        <option value="metric">Métrico (cm, kg)</option>
+        <option value="imperial">Imperial (pies, lbs)</option>
+      </select>
     </div>
 
-    <script src="app.js"></script>
+    <div id="metric-inputs" class="input-group">
+      <label for="height-cm">Altura (cm)</label>
+      <input type="number" id="height-cm" placeholder="Altura (cm)" min="0">
+    </div>
+
+    <div id="imperial-inputs" class="input-group hidden">
+      <label for="height-ft">Altura (pies)</label>
+      <input type="number" id="height-ft" placeholder="Altura (pies)" min="0">
+      <label for="height-in">Pulgadas</label>
+      <input type="number" id="height-in" placeholder="Altura (pulgadas)" min="0">
+    </div>
+
+    <div class="input-group">
+      <label for="weight">Peso</label>
+      <input type="number" id="weight" placeholder="Peso (kg o lbs)" required>
+    </div>
+
+    <div class="input-group">
+      <label for="category">Categoría</label>
+      <select id="category" required>
+        <option value="adult">Adulto</option>
+        <option value="child">Niño</option>
+      </select>
+    </div>
+
+    <button class="calculate-btn" onclick="calculateBMI()">Calcular IMC</button>
+
+    <div id="result" class="result-section hidden">
+      <h2>Resultado</h2>
+      <p id="bmi-result"></p>
+      <p id="bmi-recommendation"></p>
+    </div>
+
+    <div id="google-form" class="hidden">
+      <iframe src="https://forms.gle/wyF6TZ1iVSC5Fzy49" width="700" height="800" frameborder="0" marginheight="0" marginwidth="0">Cargando…</iframe>
+    </div>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
